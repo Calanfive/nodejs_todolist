@@ -16,6 +16,36 @@ exemple : npm install -D typescript = déplacer dans dev.dep
 
 va créer une nouvelle ligne dans node-modules 
 
+#### SETUP ####
+
+- npm init
+    Nom du projet : mon-premier-programme-nodejs
+    entry point : dist/index.js
+- npm install --save-dev concurrently typescript nodemon @types/node
+- ajouter les commandes au package.json
+    "dev": "concurrently -k -n \"Typescript,Node\" -p \"[{name}]\" -c \"blue,green\" \"tsc --watch\" \"nodemon dist/index.js\"",
+    "start": "tsc && node dist/index.js"
+- npx tsc --init
+    {
+        "compilerOptions": {
+            "module": "commonjs",
+            "esModuleInterop": true,
+            "outDir": "dist",
+            "target": "es6",
+            "strict": true
+        },
+        "include": [
+            "src/**/*"
+        ]
+    }
+- create src/index.ts
+    console.log('Hello world');
+- git init
+- git ignore node_modules et dist
+- git add .
+- git commit -m "Initial commit"
+- git remote add origin
+
 ## pour reset ##
 rm-rf node.modules = supprimer node modules + package.json
 rm package.lock.json
@@ -68,6 +98,12 @@ puis y placer :
 - node-modules
 - package-lock.json
 - .env
+
+
+## Création dossier src/##
+
+mkdir src
+touch index.ts
 
 ### Commandes argument ###
 
