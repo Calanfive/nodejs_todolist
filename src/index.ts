@@ -4,7 +4,7 @@ import 'dotenv/config'
 const app = express();
 const port = 3000
 
-app.get('/test/:min/:max', (req, res) => {
+app.get('/random-between/:min/:max', (req, res) => {
     console.log('toto');
     
     const min = parseInt(req.params.min)
