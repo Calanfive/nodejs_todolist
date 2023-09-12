@@ -96,8 +96,8 @@ app.put("/remove/:id", async (req, res) => {
 app.get('/remove-all', async (req, res) => {
     const todos = await Todo.findAll();
     for (let index = 0; index < todos.length; index++) {
-        const element = todos[index];
-        await element.destroy();
+        const alltodos = todos[index];
+        await alltodos.destroy();
     }
     res.send('all tasks removed');
 });

@@ -1,5 +1,5 @@
 import express from "express";
-import 'dotenv/config'
+import 'dotenv/config';
 import 'sequelize';
 import { DataTypes, Sequelize } from "sequelize";
 import { cp } from "fs";
@@ -109,8 +109,8 @@ const sequelize = new Sequelize({
       app.get('/remove-all', async (req, res) => {
         const todos = await Todo.findAll()
         for (let index = 0; index < todos.length; index++) {
-        const element = todos[index];
-        await element.destroy()
+        const alltodos = todos[index];
+        await alltodos.destroy()
         }
         res.send('all tasks removed')
       })
@@ -118,5 +118,4 @@ const sequelize = new Sequelize({
       app.listen(port, () => {
         console.log(`Example app listening on port ${port}`)
       })
-      
       
