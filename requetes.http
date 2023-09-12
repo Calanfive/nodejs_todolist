@@ -1,4 +1,4 @@
-GET http://localhost:3000/random-between/1/10
+GET https://nodejs-todolist-2i7kdhivr-calanfive.vercel.app
 
 ###
 

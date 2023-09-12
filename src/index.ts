@@ -8,7 +8,7 @@ import { log } from "console";
 const app = express();
 const port = 3000;
 
-// paramètres .env pour connexion postgres
+// parametres .env pour connexion postgres
 // const db_host = process.env.DB_HOST as string; 
 // const db_name = process.env.DB_NAME as string;
 // const db_username = process.env.DB_USERNAME as string;
@@ -22,7 +22,7 @@ const sequelize = new Sequelize({
     storage: "./db.sqlite",
   })
   
-  // création d'un modele
+  // creation d'un modele
   const Todo = sequelize.define("Todo", {
     nameOFtask: {
       type: DataTypes.STRING,

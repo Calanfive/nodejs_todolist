@@ -9,7 +9,7 @@ require("sequelize");
 const sequelize_1 = require("sequelize");
 const app = (0, express_1.default)();
 const port = 3000;
-// paramètres .env pour connexion postgres
+// parametres .env pour connexion postgres
 // const db_host = process.env.DB_HOST as string; 
 // const db_name = process.env.DB_NAME as string;
 // const db_username = process.env.DB_USERNAME as string;
@@ -20,7 +20,7 @@ const sequelize = new sequelize_1.Sequelize({
     dialect: "sqlite",
     storage: "./db.sqlite",
 });
-// création d'un modele
+// creation d'un modele
 const Todo = sequelize.define("Todo", {
     nameOFtask: {
         type: sequelize_1.DataTypes.STRING,
