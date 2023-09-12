@@ -65,7 +65,42 @@ app.get('/add/:nom', (req, res) => {
     });
     res.send(messageAstocker);
 });
+// Selection get-all
+app.get('/get-all/', async (req, res) => {
+    const getall = await Todo.findAll();
+    console.log(JSON.stringify(getall));
+    res.send(getall);
+});
 // Modifier statusOFtask: false to true 
+app.put("/update/:id/:new_status", async (req, res) => {
+    let id_to_update = req.params.id;
+    let new_status = req.params.new_status;
+    await Todo.update({ statusOFtask: new_status }, {
+        where: {
+            id: id_to_update
+        }
+    });
+    res.send(200);
+});
+// Supprimer une ligne par l'id
+app.put("/remove/:id", async (req, res) => {
+    const deleteTask = req.params.id;
+    await Todo.destroy({
+        where: {
+            id: deleteTask
+        }
+    });
+    res.send('task deleted');
+});
+// Supprimer l'ensemble des lignes
+app.get('/remove-all', async (req, res) => {
+    const todos = await Todo.findAll();
+    for (let index = 0; index < todos.length; index++) {
+        const element = todos[index];
+        await element.destroy();
+    }
+    res.send('all tasks removed');
+});
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
